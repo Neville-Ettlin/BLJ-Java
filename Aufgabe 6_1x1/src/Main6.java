@@ -3,7 +3,7 @@ public class Main6 {
     public static void main(String[] args) {
         for (int i = 1; i <= 10; i++) {
             System.out.println(
-                            1 * i + "\t"
+                            i + "\t"
                             + 2 * i + "\t"
                             + 3 * i + "\t"
                             + 4 * i + "\t"

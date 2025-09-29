@@ -21,7 +21,6 @@ public class Main5 {
                     }
                     System.out.println("Du hast es geschafft!");
 
-                } else {
                 }
         }
     }
