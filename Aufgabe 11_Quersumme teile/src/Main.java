@@ -56,12 +56,13 @@ public class Main {
 
         System.out.println("Zahl2: ");
         int zahl2 = scanner.nextInt();
-
-        System.out.println("Zahl, Quersumme, Zahl/Quersumme");
+        System.out.println("------------------------------------------");
+        System.out.println("Zahl \t| Quersumme \t| Zahl / Quersumme");
+        System.out.println("------------------------------------------");
         for (int i = 0; i <= zahlenVonErsteBisZweite(zahl1, zahl2).length -1; i++) {
             if (zahlDurchQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2), zahl1, zahl2)[i] != -1) {
-                System.out.print(zahlenVonErsteBisZweite(zahl1, zahl2)[i] + ", ");
-                System.out.print(berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2)[i] + ", ");
+                System.out.print(zahlenVonErsteBisZweite(zahl1, zahl2)[i] + "\t\t| ");
+                System.out.print(berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2)[i] + "\t\t\t\t| ");
                 System.out.print(zahlDurchQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2), zahl1, zahl2)[i]);
                 System.out.println(" ");
             }
