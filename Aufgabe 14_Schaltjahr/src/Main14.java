@@ -1,7 +1,9 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main14 {
     public static void main(String[] args) {
+        try {
         Scanner scanner = new Scanner(System.in);
         while (1 == 1) {
             System.out.println("Eingabe Jahr (q = quit): ");
@@ -17,6 +19,13 @@ public class Main14 {
                     System.out.println("Das Jahr " + jahr + " ist kein Schaltjahr.");
                 }
             }
+        }
+    } catch (InputMismatchException e) {
+            System.out.println("Bitte geben Sie nur ein vollständiges Jahr ein!");
+        } catch (NumberFormatException e) {
+            System.out.println("Bitte geben Sie nur ein vollständiges Jahr oder q ein!");
+        } catch (Exception e) {
+            System.out.println("Ein Fehler ist aufgetreten!" + e);
         }
     }
 }

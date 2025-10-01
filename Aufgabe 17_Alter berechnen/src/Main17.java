@@ -1,4 +1,5 @@
 import java.time.Instant;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main17 {
@@ -22,23 +23,30 @@ public class Main17 {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        try {
+            Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ihr Geburtsdatum: ");
-        String geburtsdatum = scanner.nextLine();
-        geburtsdatum = geburtsdatum.replace(".", "-");
+            System.out.println("Ihr Geburtsdatum: ");
+            String geburtsdatum = scanner.nextLine();
+            geburtsdatum = geburtsdatum.replace(".", "-");
 
-        String geburtsdatumVollstandig = reverseGeburtsdatum(geburtsdatum) + "T00:00:00.000Z";
+            String geburtsdatumVollstandig = reverseGeburtsdatum(geburtsdatum) + "T00:00:00.000Z";
 
-        Instant instantGeburtstag = Instant.parse(geburtsdatumVollstandig);
-        long millisekundenSeitGeburtsdatum = instantGeburtstag.toEpochMilli();
+            Instant instantGeburtstag = Instant.parse(geburtsdatumVollstandig);
+            long millisekundenSeitGeburtsdatum = instantGeburtstag.toEpochMilli();
 
-        Instant instantAktuell = Instant.now();
-        long millisekundenSeitAktuell = instantAktuell.toEpochMilli();
+            Instant instantAktuell = Instant.now();
+            long millisekundenSeitAktuell = instantAktuell.toEpochMilli();
 
-        System.out.println("Alter in Jahren: " + (millisekundenSeitAktuell - millisekundenSeitGeburtsdatum) / 31536000000L);
-        System.out.println("Alter in Monaten: " + (millisekundenSeitAktuell - millisekundenSeitGeburtsdatum) / 2629746000L);
-        System.out.println("Alter in Wochen: " + (millisekundenSeitAktuell - millisekundenSeitGeburtsdatum) / 604800000L);
-        System.out.println("Alter in Tagen: " + (millisekundenSeitAktuell - millisekundenSeitGeburtsdatum) / 86400000L);
-    }
+            System.out.println("Alter in Jahren: " + (millisekundenSeitAktuell - millisekundenSeitGeburtsdatum) / 31536000000L);
+            System.out.println("Alter in Monaten: " + (millisekundenSeitAktuell - millisekundenSeitGeburtsdatum) / 2629746000L);
+            System.out.println("Alter in Wochen: " + (millisekundenSeitAktuell - millisekundenSeitGeburtsdatum) / 604800000L);
+            System.out.println("Alter in Tagen: " + (millisekundenSeitAktuell - millisekundenSeitGeburtsdatum) / 86400000L);
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Bitte geben Sie nur ein vollständiges Datum ein!");
+        } catch (Exception e) {
+            System.out.println("Ein Fehler ist aufgetreten!" + e);
+        }
+        }
 }

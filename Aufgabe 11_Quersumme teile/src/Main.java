@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -50,21 +51,27 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Zahl1: ");
-        int zahl1 = scanner.nextInt();
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Zahl1: ");
+            int zahl1 = scanner.nextInt();
 
-        System.out.println("Zahl2: ");
-        int zahl2 = scanner.nextInt();
-        System.out.println("------------------------------------------");
-        System.out.println("Zahl \t| Quersumme \t| Zahl / Quersumme");
-        System.out.println("------------------------------------------");
-        for (int i = 0; i <= zahlenVonErsteBisZweite(zahl1, zahl2).length -1; i++) {
-            if (zahlDurchQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2), zahl1, zahl2)[i] != -1) {
-                System.out.print(zahlenVonErsteBisZweite(zahl1, zahl2)[i] + "\t\t| ");
-                System.out.print(berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2)[i] + "\t\t\t\t| ");
-                System.out.print(zahlDurchQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2), zahl1, zahl2)[i]);
-                System.out.println(" ");
+            System.out.println("Zahl2: ");
+            int zahl2 = scanner.nextInt();
+            System.out.println("------------------------------------------");
+            System.out.println("Zahl \t| Quersumme \t| Zahl / Quersumme");
+            System.out.println("------------------------------------------");
+            for (int i = 0; i <= zahlenVonErsteBisZweite(zahl1, zahl2).length - 1; i++) {
+                if (zahlDurchQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2), zahl1, zahl2)[i] != -1) {
+                    System.out.print(zahlenVonErsteBisZweite(zahl1, zahl2)[i] + "\t\t| ");
+                    System.out.print(berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2)[i] + "\t\t\t\t| ");
+                    System.out.print(zahlDurchQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), berechneQuersumme(zahlenVonErsteBisZweite(zahl1, zahl2), zahl1, zahl2), zahl1, zahl2)[i]);
+                    System.out.println(" ");
+                }
             }
+        } catch (InputMismatchException e) {
+            System.out.println("Bitte geben Sie eine ganze Zahl ein!");
+        } catch (Exception e) {
+            System.out.println("Ein Fehler ist aufgetreten!" + e);
         }
     }}

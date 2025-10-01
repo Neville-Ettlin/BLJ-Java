@@ -3,21 +3,21 @@ import java.util.Scanner;
 
 public class Main19 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        try {
+            Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Machen Sie Ihre Rechnung: ");
-        String eingabe = scanner.nextLine();
-        eingabe = eingabe.replaceAll("\\s+","");
+            System.out.println("Machen Sie Ihre Rechnung: ");
+            String eingabe = scanner.nextLine();
+            eingabe = eingabe.replaceAll("\\s+", "");
 
-        String[] eingabeSplit = eingabe.split("((?=/|\\*|\\+|-)|(?<=/|\\*|\\+|-))");
+            String[] eingabeSplit = eingabe.split("((?=/|\\*|\\+|-)|(?<=/|\\*|\\+|-))");
 
 
-
-        int result = 0;
-     //   int i = 0;
-    //    for (int p = 0; p < (eingabeSplit.length / 3) + 1; p++ ) {
-         //   if (eingabeSplit.length == 3 && p == 1) {
-           //     break;
+            int result = 0;
+            //   int i = 0;
+            //    for (int p = 0; p < (eingabeSplit.length / 3) + 1; p++ ) {
+            //   if (eingabeSplit.length == 3 && p == 1) {
+            //     break;
             //}
             switch (eingabeSplit[1]) {
                 case "+":
@@ -34,8 +34,15 @@ public class Main19 {
                     break;
                 default:
             }
-          //  i += 3;
-      //  }
-        System.out.println("Das Ergebnis ist: " + result);
+            //  i += 3;
+            //  }
+            System.out.println("Das Ergebnis ist: " + result);
+        } catch (NumberFormatException e) {
+            System.out.println("Bitte geben Sie nur eine Ganzzahlen, ein Operator, und eine Ganzzahl in dieser Reihenfolge ein!");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Bitte geben Sie genau 2 Zahlen und einen Operator ein!");
+        } catch (Exception e) {
+            System.out.println("Ein Fehler ist aufgetreten!" + e);
+        }
     }
 }
