@@ -19,7 +19,7 @@ public class Main4 {
         } catch (InputMismatchException ex) {
             System.out.println("Bitte geben Sie eine ganze Zahl ein!");
         } catch (Exception ex){
-            System.out.println("Ein Fehler ist aufgetreten!" + ex.toString());
+            System.out.println("Ein Fehler ist aufgetreten!" + ex);
         }
 
     }

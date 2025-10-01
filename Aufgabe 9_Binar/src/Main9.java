@@ -27,7 +27,7 @@ public class Main9 {
         } catch (InputMismatchException e) {
             System.out.println("Bitte geben Sie eine Zahl ein!");
         } catch (Exception e) {
-            System.out.println("Ein Fehler ist aufgetreten!" + e.toString());
+            System.out.println("Ein Fehler ist aufgetreten!" + e);
         }
     }
 }
