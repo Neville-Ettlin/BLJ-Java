@@ -1,8 +1,10 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main9 {
     public static void main(String[] args) {
+        try {
         String[] binar = new String[10];
 
         Scanner scanner = new Scanner(System.in);
@@ -21,5 +23,11 @@ public class Main9 {
                 .toArray(String[]::new);
 
         String binarZusammen = String.join("", binarNoNull);
-        System.out.println(binarZusammen);    }
+        System.out.println(binarZusammen);
+        } catch (InputMismatchException e) {
+            System.out.println("Bitte geben Sie eine Zahl ein!");
+        } catch (Exception e) {
+            System.out.println("Ein Fehler ist aufgetreten!" + e.toString());
+        }
     }
+}
