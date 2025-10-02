@@ -107,7 +107,6 @@ public class Main {
             } else {
                 memorydisplay[inputArray[0]][inputArray[1]] = memoryLsgChar[inputArray[0]][inputArray[1]];
                 memorydisplay[inputArray[2]][inputArray[3]] = memoryLsgChar[inputArray[2]][inputArray[3]];
-
             }
             return checkIdentisch;
     }
@@ -123,7 +122,9 @@ public class Main {
 
         if (inputStringZuIntArray[0] == inputStringZuIntArray[2] && inputStringZuIntArray[1] == inputStringZuIntArray[3]) {
             System.out.println("Ungültige Eingabe! 2x die gleiche Position.");
-            return new int[0]; //Lowkey nid so tuff
+            inputStringZuIntArray[1] = 100;
+            return new int[4];
+
         }
 
         for (int i = 0; i < inputStringZuIntArray.length; i++) {
@@ -166,12 +167,13 @@ public class Main {
             inputArray = inputStringAufteilungArrayMeth(input);
 
             versuche++;
-
-            if (checkIdentisch(input)) {
-                endCounter++;
-                System.out.println("Treffer\n" + endCounter);
-            } else {
-                System.out.println("Verfehlt\n"+ endCounter);
+            if (inputArray[1] != inputArray[3] && inputArray[0] != inputArray[2]) {
+                if (checkIdentisch(input)) {
+                    endCounter++;
+                    System.out.println("Treffer\n");
+                } else {
+                    System.out.println("Verfehlt\n");
+                }
             }
         }
         System.out.println("Gratulation! ALle Karten sind Aufgedeckt!");
