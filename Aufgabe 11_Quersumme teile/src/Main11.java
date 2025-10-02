@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+public class Main11 {
 
     //Erstellt ein Array in welchem alle Zahlen zwischen Zahl1 und Zahl2 sind.
     static int[] zahlenVonErsteBisZweite (int zahl1, int zahl2) {
