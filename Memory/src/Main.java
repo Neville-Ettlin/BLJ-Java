@@ -135,50 +135,55 @@ public class Main {
 
 
     public static void main(String[] args) {
-        final String BOLD = "\u001B[1m";
-        final String RESET = "\u001B[0m";
-        Scanner scanner = new Scanner(System.in);
+        try {
+            final String BOLD = "\u001B[1m";
+            final String RESET = "\u001B[0m";
+            Scanner scanner = new Scanner(System.in);
 
-        memoryLsg1d = zufallsZahlen1dArrayMeth();
-        memoryLsg = zufallsZahlen1dZu2dArrayMeth();
-        memoryLsgChar = zufallsZahlenArrayZuCharArrayMeth();
-        memorydisplay = initialCharArrayAnzeigenMeth();
+            memoryLsg1d = zufallsZahlen1dArrayMeth();
+            memoryLsg = zufallsZahlen1dZu2dArrayMeth();
+            memoryLsgChar = zufallsZahlenArrayZuCharArrayMeth();
+            memorydisplay = initialCharArrayAnzeigenMeth();
 
 
-        int versuche = 0;
-        int endCounter = 0;
-        for (int i = 0; endCounter < 8; i++) {
+            int versuche = 0;
+            int endCounter = 0;
+            for (int i = 0; endCounter < 8; i++) {
 
-           //System.out.println(Arrays.deepToString(memoryLsgChar).replace("], ", "\n").replace("[[", "").replace("]]", "").replace("[", "").replace(",", "\t"));
+                //System.out.println(Arrays.deepToString(memoryLsgChar).replace("], ", "\n").replace("[[", "").replace("]]", "").replace("[", "").replace(",", "\t"));
 
-            System.out.print("\t");
-            for (int j = 0; j < 4; j++) {
-                System.out.print(BOLD + (j + 1) + "\t" + RESET);
-            }   System.out.println();
-
-            for (int k = 0; k < 4; k++) {
-                System.out.print(BOLD + (k + 1) + "\t" + RESET);
+                System.out.print("\t");
                 for (int j = 0; j < 4; j++) {
-                    System.out.print(memorydisplay[k][j] + "\t");
-                }   System.out.println();
-            }
+                    System.out.print(BOLD + (j + 1) + "\t" + RESET);
+                }
+                System.out.println();
 
-            String input = scanner.nextLine();
-            inputArray = inputStringAufteilungArrayMeth(input);
+                for (int k = 0; k < 4; k++) {
+                    System.out.print(BOLD + (k + 1) + "\t" + RESET);
+                    for (int j = 0; j < 4; j++) {
+                        System.out.print(memorydisplay[k][j] + "\t");
+                    }
+                    System.out.println();
+                }
 
-            versuche++;
-            if (inputArray[1] != inputArray[3] && inputArray[0] != inputArray[2]) {
-                if (checkIdentisch(input)) {
-                    endCounter++;
-                    System.out.println("Treffer\n");
-                } else {
-                    System.out.println("Verfehlt\n");
+                String input = scanner.nextLine();
+                inputArray = inputStringAufteilungArrayMeth(input);
+
+                versuche++;
+                if (inputArray[1] != inputArray[3] && inputArray[0] != inputArray[2]) {
+                    if (checkIdentisch(input)) {
+                        endCounter++;
+                        System.out.println("Treffer\n");
+                    } else {
+                        System.out.println("Verfehlt\n");
+                    }
                 }
             }
+            System.out.println("Gratulation! ALle Karten sind Aufgedeckt!");
+            System.out.println("Sie benötigten " + versuche + " Versuche!");
+            System.out.println("Testing: Samuel Leon Ming on GitHub [samuelm203]");
+        } catch (Exception e) {
+            System.out.println("Ein Fehler ist aufgetreten!" + e);
         }
-        System.out.println("Gratulation! ALle Karten sind Aufgedeckt!");
-        System.out.println("Sie benötigten " + versuche + " Versuche!");
-        System.out.println("Testing: Samuel Leon Ming on GitHub [samuelm203]");
-
     }
 }
